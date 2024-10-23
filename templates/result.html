@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='apply.css') }}">
+<script src="{{ url_for('static', filename='myscript.js') }}" defer></script>
+
+</head>
+<body>
+
+<div class="header">
+  <h1>©1886 EWHA</h1>
+</div>
+
+<div class="topnav">
+  <a href="/products" onclick="goToPage('전체상품')">전체 상품</a> 
+  <a href="/new_products" onclick="goToPage('신상품')">신상품</a> 
+  <a href="/reviews" onclick="goToPage('리뷰 조회')">리뷰 조회</a> 
+  <a href="/mypage" onclick="goToPage('마이페이지')">마이페이지</a> 
+</div>
+
+<p>
+    Seller {{ data['seller-id'] }} sells {{ data['product-name'] }} and 
+    this item is 
+    {% if data['condition'] == "new" %}
+    likely new !
+    {% elif data['condition'] == "used" %}
+    used !
+    {% endif %}
+</p>
+<img src="{{ img_path }}">
+<p>
+  Product's description is  {{ data['description'] }} <br>
+  and the price is {{ data['price'] }}
+</p>
+
+</body>
+</html>

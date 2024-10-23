@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='apply.css') }}">
+<script src="{{ url_for('static', filename='myscript.js') }}" defer></script>
+
+</head>
+<body>
+
+<div class="header">
+  <h1>©1886 EWHA</h1>
+</div>
+
+<div class="topnav">
+  <a href="/products" onclick="goToPage('전체상품')">전체 상품</a> 
+  <a href="/new_products" onclick="goToPage('신상품')">신상품</a> 
+  <a href="/reviews" onclick="goToPage('리뷰 조회')">리뷰 조회</a> 
+  <a href="/mypage" onclick="goToPage('마이페이지')">마이페이지</a> 
+</div>
+
+<div class="form-container">
+    <h2>상품 등록</h2>
+    <form action="/submit_item_post" method="post" enctype="multipart/form-data">
+        <!-- 판매자 아이디 -->
+        <div class="form-group">
+            <label for="seller-id">판매자 아이디</label>
+            <input type="text" id="seller-id" name="seller-id" required>
+        </div>
+
+        <!-- 상품 이름 -->
+        <div class="form-group">
+            <label for="product-name">상품 이름</label>
+            <input type="text" id="product-name" name="product-name" required>
+        </div>
+
+        <!-- 가격 -->
+        <div class="form-group">
+            <label for="price">가격</label>
+            <input type="number" id="price" name="price" required>
+        </div>
+
+        <!-- 지역 -->
+        <div class="form-group">
+            <label for="location">지역</label>
+            <input type="text" id="location" name="location" required>
+        </div>
+
+        <!-- 상태 -->
+        <div class="form-group">
+            <label for="condition">상태</label>
+            <select id="condition" name="condition" required>
+                <option value="new">새 상품</option>
+                <option value="used">중고 상품</option>
+            </select>
+        </div>
+
+        <!-- 설명 -->
+        <div class="form-group">
+            <label for="description">설명</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+        </div>
+
+        <!-- 대표 사진 -->
+        <div class="form-group">
+            <label for="photo">대표 사진</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+        </div>
+
+        <!-- 업로드 버튼 -->
+        <div class="form-group">
+            <button type="submit">상품 등록</button>
+        </div>
+    </form>
+</div>
+
+</div>
+<div class="clearfix"></div>
+</body>
+</html>
